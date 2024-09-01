@@ -1,0 +1,184 @@
+/* Reset CSS básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Usar la fuente por defecto */
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #f4b400;
+}
+
+.hero {
+    background: url('https://via.placeholder.com/1600x900') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background: #f4b400;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background: #d89300;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+section {
+    padding: 60px 0;
+    /* Puedes ajustar la altura si necesitas */
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.services-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.service {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 30%;
+}
+
+.service h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 10px 0; /* Ajusta el padding para un footer más compacto */
+    text-align: center;
+    margin: 0;
+}
+
+#contact, #about {
+    width: 100%;
+    padding: 20px 0; /* Espacio interno arriba y abajo */
+    text-align: center;
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+}
+
+#contact {
+    height: 400px; /* Ajusta la altura según sea necesario */
+    border-top: none;
+    border-bottom: none;
+}
+
+#about {
+    height: 400px; /* Ajusta la altura según sea necesario */
+    border-left: 3px solid rgb(59, 255, 59);
+    border-right: 3px solid rgb(113, 255, 113);
+    border-top: none;
+    border-bottom: none;
+}
+
+/* Definir la fuente personalizada */
+@font-face {
+    font-family: 'MyCustomFont'; /* Nombre para referenciar la fuente */
+    src: url('font/MRegular.ttf') format('truetype'); /* Ruta al archivo .ttf */
+    font-weight: normal; /* Opcional: especifica el peso de la fuente */
+    font-style: normal;  /* Opcional: especifica el estilo de la fuente */
+}
+
+/* Aplicar la fuente personalizada */
+body {
+    font-family: 'MyCustomFont', sans-serif; /* Usa la fuente personalizada */
+}
