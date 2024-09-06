@@ -444,8 +444,6 @@ button:hover {
         overflow-y: auto; /* Permite scroll si hay muchas canciones */
         margin-bottom: 10px; /* Espacio entre la lista y los controles */
     }
-    
-    
 
     .music-player.active {
         width:400px;
