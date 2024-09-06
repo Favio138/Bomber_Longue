@@ -7,8 +7,8 @@
 
 body {
     background: url('background1920.png') repeat;
-    background-size: cover;
-    animation: moveBackground 20s linear infinite;
+    background-size: 1920px 2496px; /* Ajusta al tamaño real de la imagen */
+    animation: moveBackground 100s linear infinite;
     font-family: 'MyCustomFont', sans-serif;
     color: #ffffff;
 }
@@ -120,7 +120,7 @@ h2 {
 }
 
 .service {
-    background: rgba(3, 3, 3, 0.5); 
+    background: rgba(3, 3, 3, 0.705); 
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -140,7 +140,7 @@ form {
 
 input, textarea {
     padding: 10px;
-    border: 1px solid #ddd;
+    
     border-radius: 5px;
     width: 100%;
 }
@@ -149,9 +149,9 @@ button {
     padding: 10px;
     background: #333;
     color: #fff;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
+    
 }
 
 button:hover {
@@ -172,12 +172,14 @@ footer {
     padding: 20px 0; /* Espacio interno arriba y abajo */
     text-align: center;
     box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+    
 }
 
 #contact {
     height: 800px; /* Ajusta la altura según sea necesario */
     border-top: none;
     border-bottom: none;
+    
 }
 
 
@@ -200,28 +202,28 @@ form {
     gap: 20px;
 }
 
-input[type="text"], input[type="email"] {
-    background: rgba(0, 0, 0, 0.5); /* Fondo gris claro con 50% de opacidad */
+input[type="text"], input[type="email"], textarea {
+    background: rgba(0, 0, 0, 0.7); /* Fondo gris claro con 70% de opacidad */
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
-    width: 50%; /* Ajusta el ancho a un 50% para text y email */
-    color: #d8d8d8;
+    
+    color: #ffffff;
+    width: 100%; /* Asegúrate de que los tres elementos ocupen el ancho completo del contenedor */
+}
+
+input[type="text"], input[type="email"] {
+    width: 50%; /* Ajusta el ancho a un 50% para inputs de texto y email */
 }
 
 textarea {
-    background: rgba(0, 0, 0, 0.5); /* Fondo gris claro con 50% de opacidad */
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%; /* Mantiene el ancho completo */
-    height: 150px; /* Aumenta la altura del textarea */
-    color: #ffffff;
+    height: 150px; /* Ajusta la altura del textarea */
+    resize: none; 
 }
+
 
 button {
     padding: 10px;
-    background: #333;
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -229,68 +231,199 @@ button {
 }
 
 button:hover {
-    background: #555;
+    background: #3d5f3a;
 }
 
-/* Reproductor de musica */
+/* Reproductor de música */
 .music-player {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 50px;
+    position: sticky;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%); /* Centra el reproductor horizontalmente */
+    width: 50px; /* El tamaño será proporcional al ancho de la pantalla */
+    max-width: 600px; /* Máximo tamaño en pantallas grandes */
     height: 50px;
-    background-color: #333;
+    background-color: #a5a5a5a6;
     color: white;
-    border-radius: 50%;
-    cursor: pointer;
+    border-radius: 100%; /* Bordes más suaves */
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    transition: width 0.3s ease, height 0.3s ease;
+    margin-bottom: 1%;
 }
 
+/* Cuando el reproductor está activo (expandido) */
 .music-player.active {
-    width: 300px;
-    height: 400px;
-    border-radius: 15px;
+    width: 90%;
+    height: 70px; /* Altura ajustada */
+    background: url('mplayer/pattern.png') repeat center center;
+    animation: moveBackgroundPlayer 10s linear infinite; 
+    background-color: #757575ec; 
+    border-radius: 20px;
 }
 
 .music-controls {
-    display: none;
-    flex-direction: column;
+    display: none; /* Oculta los controles por defecto */
+    flex-direction: row;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
+    gap: 10px;
 }
 
+/* Muestra controles al activar */
 .music-player.active .music-controls {
     display: flex;
 }
 
+/* Tamaños ajustados de los iconos */
+.music-controls button img,
+.icon img {
+    width: 24px;
+    height: 24px;
+}
+/* Estilos de slider de volumen */
 .volume-slider {
-    width: 80%;
-    margin: 10px 0;
+    -webkit-appearance: none;
+    width: 100px; /* Ajusta el tamaño del control de volumen */
+    height: 50px; /* Ajusta la altura del control deslizante */
+    background: rgba(0, 0, 0, 0.705); /* Línea del deslizador en naranja medio con transparencia */
+    border-radius: 5px; /* Bordes redondeados de la pista */
+    outline: none; /* Elimina el contorno por defecto */
+    cursor: pointer; /* Cambia el cursor cuando se pasa sobre el control deslizante */
+    margin: 10 10px; /* Espaciado horizontal */
+    border: none;
 }
 
+/* Lista de reproducción */
 .playlist {
-    margin-top: 20px;
-    width: 80%;
+    margin-top: 10px;
+    width: 100%; /* Ocupa el ancho completo */
+    max-height: 80px; /* Altura máxima de la lista */
+    overflow-y: auto; /* Desplazamiento vertical si hay muchas canciones */
 }
+
+/* Estilos para la parte de la línea que ya ha sido deslizada (solo WebKit) */
+.volume-slider::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.5); /* Línea del deslizador en naranja medio con transparencia */
+    height: 8px; /* Altura de la línea */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilos para la parte de la línea que ya ha sido deslizada (Firefox) */
+.volume-slider::-moz-range-track {
+    background: rgba(255, 165, 0, 0.5); /* Línea del deslizador en naranja medio con transparencia */
+    height: 8px; /* Altura de la línea */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilos para la parte de la línea que ya ha sido deslizada (Internet Explorer) */
+.volume-slider::-ms-track {
+    background: rgba(255, 165, 0, 0.5); /* Línea del deslizador en naranja medio con transparencia */
+    height: 8px; /* Altura de la línea */
+    border-radius: 5px; /* Bordes redondeados */
+    border-color: transparent; /* Elimina el borde predeterminado */
+    color: transparent; /* Elimina el color predeterminado */
+}
+
+/* Estilos para el punto (thumb) del deslizador */
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Elimina el estilo predeterminado en WebKit browsers */
+    background: #fff; /* Color del punto blanco */
+    width: 15px; /* Ancho del punto */
+    height: 15px; /* Alto del punto */
+    border-radius: 30%; /* Hace el punto redondo */
+    cursor: pointer; /* Cambia el cursor cuando se pasa sobre el punto */
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.774); /* Sombra para el punto */
+    position: relative; /* Asegura que se posicione correctamente */
+    top: 50%; /* Centra verticalmente el punto */
+    transform: translateY(-50%); /* Ajusta la posición del punto */
+}
+
+/* Estilos para el punto (thumb) del deslizador (Firefox) */
+.volume-slider::-moz-range-thumb {
+    background: #fff; /* Color del punto blanco */
+    width: 20px; /* Ancho del punto */
+    height: 8px; /* Alto del punto */
+    border-radius: 50%; /* Hace el punto redondo */
+    cursor: pointer; /* Cambia el cursor cuando se pasa sobre el punto */
+}
+
+/* Estilos para el punto (thumb) del deslizador (Internet Explorer) */
+.volume-slider::-ms-thumb {
+    background: #fff; /* Color del punto blanco */
+    width: 20px; /* Ancho del punto */
+    height: 8px; /* Alto del punto */
+    border-radius: 50%; /* Hace el punto redondo */
+    cursor: pointer; /* Cambia el cursor cuando se pasa sobre el punto */
+}
+
 
 .playlist li {
     cursor: pointer;
     margin: 5px 0;
     list-style: none;
+    padding: 5px;
+    border-radius: 5px;
+    background: rgba(39, 39, 39, 0.733); /* Fondo translúcido para los ítems */
+}
+
+.playlist li:hover {
+    background: rgba(255, 145, 0, 0.7); /* Fondo más oscuro al pasar el ratón */
 }
 
 .icon {
-    font-size: 30px;
+    font-size: 24px; /* Ajusta el tamaño del icono de flecha */
+    color: #000000; /* Color del icono */
+    padding: 20px;
 }
+
 /* anim fondo*/
 @keyframes moveBackground {
     0% {
         background-position: 0 0;
     }
     100% {
-        background-position: -1000px -1000px;
+        background-position: +1920px +2496px; /* Mover a la izquierda y abajo el tamaño exacto de la imagen */
+    }
+}
+@keyframes moveBackgroundPlayer {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: +256px +206px; /* Mover a la izquierda y abajo el tamaño exacto de la imagen */
+    }
+}
+/* Media queries para pantallas pequeñas (móvil) */
+@media (max-width: 768px) {
+    .music-player {
+        width: 95%; /* Más ancho en pantallas pequeñas */
+        height: 60px;
+    }
+    
+    .music-player.active {
+        height: 80px;
+    }
+
+    .volume-slider {
+        width: 60px;
+    }
+}
+
+/* Media queries para pantallas muy pequeñas (móviles antiguos) */
+@media (max-width: 480px) {
+    .music-player {
+        width: 100%; /* Ocupa todo el ancho */
+        height: 50px;
+    }
+
+    .music-player.active {
+        height: 70px;
+    }
+
+    .volume-slider {
+        width: 50px;
     }
 }
