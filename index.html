@@ -7,6 +7,7 @@
     <title>Bomber Lounge</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="scriptsheet.js"></script>
 </head>
 <body>
     <header>
@@ -23,7 +24,7 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Welcome to the Lounge                                   a</h1>
+            <h1>Welcome to the Lounge</h1>
             <p>Enjoy, share and play bomberman!</p>
             <a href="#about" class="cta-button">See more!</a>
         </div>
@@ -32,7 +33,9 @@
     <section id="about">
         <div class="container">
             <h2>About</h2>
-            <p>This is the Unofficial Fan website for all Bomberman lovers</p>
+            <p>This is the Unofficial Fan website for all Bomberman lovers.
+                This server is ran by Favio138
+            </p>
         </div>
     </section>
 
@@ -67,7 +70,8 @@
     <section id="contact">
         <div class="container">
             <h2>Contact</h2>
-            <p>Don't hesitate to contact us, if you're troll, your gmail will be automatically blocked.</p>
+            <p>Don't hesitate to contact us, <br>if you're troll, your gmail will be automatically blocked.</p>
+            <br>
             <form>
                 <input type="text" placeholder="Name" required>
                 <input type="email" placeholder="Email" required>
@@ -82,5 +86,22 @@
             <p>&copy; 2024 Bomber Lounge. This is an unofficial fan site. All Bomberman-related content is © and ™ by their respective owners.</p>
         </div>
     </footer>
+    <div class="music-player" id="musicPlayer">
+        <div class="icon" id="togglePlayer">▲</div>
+        <div class="music-controls">
+            <audio id="audioPlayer" autoplay>
+                <source src="music/SaturnBombermanMasterMode.mp3" type="audio/mpeg">
+            </audio>
+            <button id="playPauseBtn">⏯</button>
+            <button id="prevBtn">⏮</button>
+            <button id="nextBtn">⏭</button>
+            <button id="repeatBtn">🔁</button>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+            <ul class="playlist" id="playlist">
+                <li data-src="music/SaturnBombermanMasterMode.mp3">Saturn Bomberman Master Mode Stage</li>
+            </ul>
+        </div>
+    </div>
+
 </body>
 </html>
