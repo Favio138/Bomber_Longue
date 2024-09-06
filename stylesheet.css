@@ -399,12 +399,26 @@ button:hover {
 /* Media queries para pantallas pequeñas (móvil) */
 @media (max-width: 768px) {
     .music-player {
-        width: 95%; /* Más ancho en pantallas pequeñas */
-        height: 60px;
+        position: fixed; /* Fijo para que siempre esté en pantalla */
+        bottom: 115px; /* Se queda pegado al fondo */
+        left: 50%; /* Centrado horizontalmente */
+        transform: translateX(-50%); /* Ajuste fino para centrarlo */
+        width: 50px;
+        height: 50px;
+        background-color: #a5a5a5a6;
+        color: white;
+        border-radius: 50%; /* Bordes redondeados */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: width 0.3s ease, height 0.3s ease;
     }
     
     .music-player.active {
+        left: 0px;
         height: 80px;
+        width:400px;
     }
 
     .volume-slider {
@@ -414,16 +428,32 @@ button:hover {
 
 /* Media queries para pantallas muy pequeñas (móviles antiguos) */
 @media (max-width: 480px) {
-    .music-player {
-        width: 100%; /* Ocupa todo el ancho */
-        height: 50px;
+    .music-player.active {
+        display: flex;
+        flex-direction: column; /* Coloca los elementos uno debajo del otro */
+        height: 200px; /* Ajusta la altura según el contenido */
+        width: 90%; /* Ajusta el ancho en pantallas pequeñas */
+        background-color: #757575ec;
+        border-radius: 20px;
+        padding: 10px; /* Espaciado interno */
     }
+    
+    .playlist {
+        width: 100%; /* Ocupa el ancho completo */
+        max-height: 100px; /* Altura máxima para la lista */
+        overflow-y: auto; /* Permite scroll si hay muchas canciones */
+        margin-bottom: 10px; /* Espacio entre la lista y los controles */
+    }
+    
+    
 
     .music-player.active {
-        height: 70px;
+        width:400px;
+        left: 50%;
+        
     }
 
     .volume-slider {
-        width: 50px;
+        width: 180px;
     }
 }

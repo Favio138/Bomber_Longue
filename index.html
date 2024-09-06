@@ -82,6 +82,9 @@
     </section>
     <div class="music-player" id="musicPlayer">
         <div class="icon" id="togglePlayer"><img src="mplayer/sound.png" alt="Music"></div>
+        <ul class="playlist" id="playlist">
+            <li data-src="music/SaturnBombermanMasterMode.mp3">Saturn Bomberman Master Mode Stage</li>
+        </ul>
         <div class="music-controls">
             <audio id="audioPlayer" autoplay>
                 <source src="music/SaturnBombermanMasterMode.mp3" type="audio/mpeg">
@@ -91,9 +94,7 @@
             <button id="nextBtn"><img src="mplayer/fjump.png" alt="Forward"></button>
             <button id="repeatBtn"><img src="mplayer/repeat.png" alt="Repeat"></button>
             <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.001" value="0.5">
-            <ul class="playlist" id="playlist">
-                <li data-src="music/SaturnBombermanMasterMode.mp3">Saturn Bomberman Master Mode Stage</li>
-            </ul>
+            
         </div>
     </div>
     <footer>
