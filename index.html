@@ -26,7 +26,6 @@
         <div class="hero-content">
             <h1>Welcome to the Lounge</h1>
             <p>Enjoy, share and play bomberman!</p>
-            <a href="#about" class="cta-button">See more!</a>
         </div>
     </section>
 
@@ -80,23 +79,41 @@
             </form>
         </div>
     </section>
+
     <div class="music-player" id="musicPlayer">
-        <div class="icon" id="togglePlayer"><img src="mplayer/sound.png" alt="Music"></div>
+        <div class="icon" id="togglePlayer">
+            <img src="mplayer/sound.png" alt="Music">
+        </div>
         <ul class="playlist" id="playlist">
+            <li data-src="music/AmazingBombermanMenuRetro.ogg">Amazing Bomberman Menu Retro</li>
+            <li data-src="music/AmazingBombermanBubbleAddiction.ogg">Amazing Bomberman Bubble Addiction Instrumental</li>
             <li data-src="music/SaturnBombermanMasterMode.mp3">Saturn Bomberman Master Mode Stage</li>
+            <li data-src="music/SBR2_camp.wav">Super Bomberman R 2 Camp</li>
+            <li data-src="music/SBR2_camp_en.wav">Super Bomberman R 2 Camp Enemy</li>
         </ul>
+        <audio id="audioPlayer" autoplay>
+            <source src="music/AmazingBombermanMenuRetro.ogg" type="audio/mpeg">
+            <source src="music/AmazingBombermanBubbleAddiction.ogg" type="audio/mpeg">
+            <source src="music/SaturnBombermanMasterMode.mp3" type="audio/mpeg">
+            <source src="music/SBR2_camp.wav" type="audio/mpeg">
+            <source src="music/SBR2_camp_en.wav" type="audio/mpeg">
+        </audio>
         <div class="music-controls">
-            <audio id="audioPlayer" autoplay>
-                <source src="music/SaturnBombermanMasterMode.mp3" type="audio/mpeg">
-            </audio>
+            <button id="togglePlaylistBtn">
+                <img src="mplayer/list.png" alt="Show Playlist">
+            </button>
+            
             <button id="prevBtn"><img src="mplayer/bjump.png" alt="Back"></button>
             <button id="playPauseBtn"><img src="mplayer/play.png" alt="Play"></button>
             <button id="nextBtn"><img src="mplayer/fjump.png" alt="Forward"></button>
             <button id="repeatBtn"><img src="mplayer/repeat.png" alt="Repeat"></button>
             <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.001" value="0.5">
-            
         </div>
+    
+        
     </div>
+
+    
     <footer>
         <div class="container">
             <p>&copy; 2024 Bomber Lounge. This is an unofficial fan site. All Bomberman-related content is © and ™ by their respective owners.</p>

@@ -14,8 +14,14 @@ body {
 }
 
 header {
-    background: #333;
-    color: #fff;
+    width: auto;
+    height: auto;
+    background: url('mplayer/pattern.png') repeat center center;
+    background-color: #4b4b4bbb;
+    opacity: 0.8;
+    background-size: auto auto;
+    animation: moveBackgroundPlayer 15s linear infinite; 
+    color: #000000;
     padding: 10px 20px;
     position: fixed;
     width: 100%;
@@ -23,7 +29,12 @@ header {
     left: 0;
     z-index: 1000;
 }
-
+header nav {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 100%;
+}
 nav {
     display: flex;
     justify-content: space-between;
@@ -37,60 +48,53 @@ nav {
 }
 
 .nav-links li a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
 }
 
 .nav-links li a:hover {
     color: #f4b400;
 }
-
 .hero {
-    
-    background:url('bomberlonguebanner.png') no-repeat center center/cover;
+    background: url('bomberlonguebanner.png') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: #fff;
+    align-items: flex-start; /* Mueve el contenido hacia arriba */
+    color: #e7e7e7;
     text-align: center;
+    padding-top: 80px; /* Ajusta según lo que prefieras */
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 900px;
+    padding: 30px;
+    border-radius: 20px;
     
-
 }
 
 .hero h1 {
-    font-size: 48px;
-    background: rgba(0, 0, 0, 0.5); /* Fondo gris claro con 50% de opacidad */
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #9b9b9b;
-    border-radius: 70px;
+    font-size: 48px; /* Ajustado para que no sea tan grande */
+    background: rgba(255, 255, 255, 0.1); /* Fondo más claro */
+    padding: 15px 20px;
+    margin: 20px 0;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-weight: bold;
+    text-shadow: 0px 10px 10px rgb(0, 0, 0); /* Sombra en el texto */
+    box-shadow: 0 10px 10px rgb(0, 0, 0); /* Sombra para darle más profundidad */
 }
 
 .hero p {
-    font-size: 24px;
-    margin: 20px;
-    background: rgba(0, 0, 0, 0.5); /* Fondo gris claro con 50% de opacidad */
-    padding: 10px;
-    border: 1px solid #9b9b9b;
-    border-radius: 30px;
-}
-
-.cta-button {
+    font-size: 22px;
+    margin: 15px 0;
+    background: rgba(255, 255, 255, 0.1); /* Fondo más sutil también aquí */
     padding: 10px 20px;
-    background: #f4b400;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    text-shadow: 0px 10px 10px rgb(0, 0, 0); /* Sombra en el texto */
 }
 
-.cta-button:hover {
-    background: #d89300;
-}
 
 .container {
     max-width: 1500px;
@@ -159,27 +163,43 @@ button:hover {
 }
 
 footer {
-    background: #333;
+    background: url('fireup.png') repeat center center;
+    background-size: auto 100%;
+    animation: moveright 120s linear infinite; 
     color: #fff;
     padding: 10px 0; /* Ajusta el padding para un footer más compacto */
     text-align: center;
     margin: 0;
-}
 
-#contact, #about {
-    height: 400px; /* Ajusta la altura según sea necesario */
-    width: 100%;
-    padding: 20px 0; /* Espacio interno arriba y abajo */
-    text-align: center;
-    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+}
+footer  p{
+    background-color: rgba(44, 31, 1, 0.7); /* Fondo negro con opacidad */
+    padding: 10px; /* Añade algo de espacio alrededor del texto */
+    display: inline-block; /* Mantiene el fondo ajustado al tamaño del texto */
+    border-radius: 15px; /* Bordes redondeados */
+
     
 }
+
+#about {
+    height: 400px;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 150px; /* Añade más espacio arriba */
+}
+
+
 
 #contact {
     height: 800px; /* Ajusta la altura según sea necesario */
     border-top: none;
     border-bottom: none;
-    
+    width: 100%;
+    padding: 20px 0; /* Espacio interno arriba y abajo */
+    text-align: center;
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
 }
 
 
@@ -240,12 +260,11 @@ button:hover {
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%); /* Centra el reproductor horizontalmente */
-    width: 50px; /* El tamaño será proporcional al ancho de la pantalla */
-    max-width: 600px; /* Máximo tamaño en pantallas grandes */
+    width: 50px; /* Tamaño inicial */
     height: 50px;
     background-color: #a5a5a5a6;
     color: white;
-    border-radius: 100%; /* Bordes más suaves */
+    border-radius: 100%; /* Bordes redondeados */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -254,10 +273,26 @@ button:hover {
     margin-bottom: 1%;
 }
 
+.music-player.active {
+    position: sticky; /* Asegura que el reproductor se mantenga visible */
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%); /* Mantiene el centrado */
+    display: flex;
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    height: auto; /* Ajusta la altura según el contenido */
+    max-height: 280px;
+    width: calc(100% - 20px); /* Ajusta el ancho para que se ajuste a la pantalla con un margen */
+    max-width: 390px; /* Establece un ancho máximo para pantallas pequeñas */
+    background-color: #757575ec;
+    border-radius: 20px;
+    padding: 10px; /* Espaciado interno */
+}
+
 /* Cuando el reproductor está activo (expandido) */
 .music-player.active {
-    width: 90%;
-    height: 70px; /* Altura ajustada */
+    width: auto;
+    height: auto; /* Altura ajustada */
     background: url('mplayer/pattern.png') repeat center center;
     animation: moveBackgroundPlayer 10s linear infinite; 
     background-color: #757575ec; 
@@ -276,7 +311,9 @@ button:hover {
 .music-player.active .music-controls {
     display: flex;
 }
-
+.music-player.active .playlist-visible {
+    display: block;
+}
 /* Tamaños ajustados de los iconos */
 .music-controls button img,
 .icon img {
@@ -298,10 +335,24 @@ button:hover {
 
 /* Lista de reproducción */
 .playlist {
-    margin-top: 10px;
-    width: 100%; /* Ocupa el ancho completo */
-    max-height: 80px; /* Altura máxima de la lista */
-    overflow-y: auto; /* Desplazamiento vertical si hay muchas canciones */
+    display: none; /* Inicialmente oculto */
+    margin-top: 5px;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: scroll; /* Permite el scroll */
+    font-size: 12px; /* Tamaño más pequeño del texto */
+}
+
+/* Para ocultar el scrollbar */
+.playlist::-webkit-scrollbar {
+    display: none;
+}
+
+/* Asegura que el texto no se corte */
+.playlist li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Estilos para la parte de la línea que ya ha sido deslizada (solo WebKit) */
@@ -396,10 +447,18 @@ button:hover {
         background-position: +256px +206px; /* Mover a la izquierda y abajo el tamaño exacto de la imagen */
     }
 }
+@keyframes moveright {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: +2048px 0px; /* Mover a la izquierda y abajo el tamaño exacto de la imagen */
+    }
+}
 /* Media queries para pantallas pequeñas (móvil) */
 @media (max-width: 768px) {
     .music-player {
-        position: fixed; /* Fijo para que siempre esté en pantalla */
+        position: sticky; /* Fijo para que siempre esté en pantalla */
         bottom: 115px; /* Se queda pegado al fondo */
         left: 50%; /* Centrado horizontalmente */
         transform: translateX(-50%); /* Ajuste fino para centrarlo */
@@ -416,9 +475,12 @@ button:hover {
     }
     
     .music-player.active {
-        left: 0px;
-        height: 80px;
-        width:400px;
+        height: auto; /* Asegura que también sea flexible en pantallas pequeñas */
+        width: 90%;
+    }
+
+    .playlist {
+        max-height: 100px; /* Ajusta la altura máxima de la playlist en móviles */
     }
 
     .volume-slider {
@@ -426,32 +488,58 @@ button:hover {
     }
 }
 
-/* Media queries para pantallas muy pequeñas (móviles antiguos) */
 @media (max-width: 480px) {
+    header{
+        font-size: 65%;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    }
+    
+    .music-player {
+        position: sticky;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%); /* Centra el reproductor horizontalmente */
+        width: 50px; /* Tamaño inicial */
+        height: 50px;
+        background-color: #a5a5a5a6;
+        color: white;
+        border-radius: 100%; /* Bordes redondeados */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: width 0.3s ease, height 0.3s ease;
+        margin-bottom: 1%;
+    }
+
     .music-player.active {
+        position: sticky; /* Asegura que el reproductor se mantenga visible */
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%); /* Mantiene el centrado */
         display: flex;
         flex-direction: column; /* Coloca los elementos uno debajo del otro */
-        height: 200px; /* Ajusta la altura según el contenido */
-        width: 90%; /* Ajusta el ancho en pantallas pequeñas */
+        height: auto; /* Ajusta la altura según el contenido */
+        max-height: 280px;
+        width: calc(100% - 20px); /* Ajusta el ancho para que se ajuste a la pantalla con un margen */
+        max-width: 390px; /* Establece un ancho máximo para pantallas pequeñas */
         background-color: #757575ec;
         border-radius: 20px;
         padding: 10px; /* Espaciado interno */
     }
-    
+
     .playlist {
         width: 100%; /* Ocupa el ancho completo */
-        max-height: 100px; /* Altura máxima para la lista */
+        max-height: 120px; /* Aumenta la altura máxima para que la lista sea más visible */
         overflow-y: auto; /* Permite scroll si hay muchas canciones */
         margin-bottom: 10px; /* Espacio entre la lista y los controles */
     }
 
-    .music-player.active {
-        width:400px;
-        left: 50%;
-        
-    }
-
     .volume-slider {
-        width: 180px;
+        width: 100px; /* Ajusta el tamaño del control deslizante de volumen */
     }
 }

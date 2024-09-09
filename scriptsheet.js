@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const togglePlayer = document.getElementById('togglePlayer');
     const musicPlayer = document.getElementById('musicPlayer');
     const repeatBtn = document.getElementById('repeatBtn');
+    const togglePlaylistBtn = document.getElementById('togglePlaylistBtn'); // Nuevo botón para la lista
     let isRepeating = false;
+    let isPlaylistVisible = false; // Estado de la visibilidad de la lista
+
 
     // Función para actualizar el ícono de sonido
     function updateSoundIcon() {
@@ -62,6 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar/Ocultar controles
     togglePlayer.addEventListener('click', () => {
         musicPlayer.classList.toggle('active');
+    });
+    // Mostrar/Ocultar lista de reproducción
+    togglePlaylistBtn.addEventListener('click', () => {
+        isPlaylistVisible = !isPlaylistVisible;
+        if (isPlaylistVisible) {
+            playlist.classList.add('playlist-visible');
+        } else {
+            playlist.classList.remove('playlist-visible');
+        }
     });
 
     // Inicializar el ícono de sonido al cargar la página
