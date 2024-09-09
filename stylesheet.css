@@ -475,6 +475,7 @@ button:hover {
     }
     
     .music-player.active {
+        position: fixed;
         height: auto; /* Asegura que también sea flexible en pantallas pequeñas */
         width: 90%;
     }
@@ -517,7 +518,7 @@ button:hover {
     }
 
     .music-player.active {
-        position: sticky; /* Asegura que el reproductor se mantenga visible */
+        position: fixed; /* Asegura que el reproductor se mantenga visible */
         bottom: 15px;
         left: 50%;
         transform: translateX(-50%); /* Mantiene el centrado */
